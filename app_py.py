@@ -117,7 +117,7 @@ def rejection_reasons(input: str = "") -> str:
     counts = df[df["Rejection_Reason"] != "Unknown"]["Rejection_Reason"].value_counts().reset_index()
     counts.columns = ["Rejection_Reason", "Count"]
     st.dataframe(counts)
-    st.plotly_chart(px.bar(counts, x="Rejection_Reason", y="Count", title="Rejection Reasons"), use_container_width=True)
+    st.plotly_chart(px.bar(counts, x="Rejection_Reason", y="Count", title="Rejection Reasons"), use_container_width=True, key="rejection_reason_chart")
     return "🔎 Rejection reason counts shown."
 
 @tool
