@@ -71,7 +71,7 @@ def top_products(input: str = "") -> str:
     top = df.groupby(["Material_Number", "ShortText_Item"])["Net_Value"].sum().reset_index()
     top = top.sort_values("Net_Value", ascending=False).head(10)
     st.dataframe(top)
-    st.plotly_chart(px.bar(top, x="ShortText_Item", y="Net_Value", text="Net_Value", title="Top Selling Products"), use_container_width=True)
+    st.plotly_chart(px.bar(top, x="ShortText_Item", y="Net_Value", text="Net_Value", title="Top Selling Products"), use_container_width=True, key="top_products_chart")
     return f"🏆 Top selling product is {top.iloc[0]['ShortText_Item']} with ₹{top.iloc[0]['Net_Value']:,.2f}"
 
 @tool
