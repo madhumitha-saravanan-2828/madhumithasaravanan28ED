@@ -10,7 +10,7 @@ from langchain_core.tools import tool
 # 🔐 Simple password protection
 def check_password():
     def password_entered():
-        if st.session_state["password"] == "madhu123":  # 🔑 Set your password here
+        if st.session_state["password"] == "madhu2828":  # 🔑 Set your password here
             st.session_state["password_correct"] = True
         else:
             st.session_state["password_correct"] = False
@@ -157,7 +157,7 @@ def billing_currency(input: str = "") -> str:
     counts = df["Billing_Currency"].value_counts().reset_index()
     counts.columns = ["Currency", "Count"]
     st.dataframe(counts)
-    st.plotly_chart(px.pie(counts, names="Currency", values="Count", title="Billing Currency Distribution"), use_container_width=True)
+    st.plotly_chart(px.pie(counts, names="Currency", values="Count", title="Billing Currency Distribution"), use_container_width=True, key="billing_currency_chart")
     return "💱 Billing currency distribution shown."
 
 # TOOLS LIST
