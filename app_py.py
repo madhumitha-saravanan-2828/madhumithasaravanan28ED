@@ -91,7 +91,7 @@ def monthly_sales(input: str = "") -> str:
     monthly = df.groupby(df["SaleOrder_Date"].dt.to_period("M"))["Net_Value"].sum().reset_index()
     monthly["SaleOrder_Date"] = monthly["SaleOrder_Date"].astype(str)
     st.dataframe(monthly)
-    st.plotly_chart(px.line(monthly, x="SaleOrder_Date", y="Net_Value", markers=True, title="Monthly Sales Trend"), use_container_width=True)
+    st.plotly_chart(px.line(monthly, x="SaleOrder_Date", y="Net_Value", markers=True, title="Monthly Sales Trend"), use_container_width=True, key="monthly_sales_chart")
     return "📅 Monthly sales trend shown."
 
 @tool
