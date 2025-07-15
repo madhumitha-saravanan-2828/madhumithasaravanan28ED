@@ -2,7 +2,6 @@ import os
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import streamlit_authenticator as stauth
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_groq import ChatGroq
