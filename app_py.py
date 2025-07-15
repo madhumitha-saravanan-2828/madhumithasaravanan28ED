@@ -101,7 +101,7 @@ def yearly_sales(input: str = "") -> str:
     yearly = df.groupby(df["SaleOrder_Date"].dt.year)["Net_Value"].sum().reset_index()
     yearly.columns = ["Year", "Net_Value"]
     st.dataframe(yearly)
-    st.plotly_chart(px.line(yearly, x="Year", y="Net_Value", markers=True, title="Yearly Sales Trend"), use_container_width=True)
+    st.plotly_chart(px.line(yearly, x="Year", y="Net_Value", markers=True, title="Yearly Sales Trend"), use_container_width=True, key="yearly_sales_chart")
     return "🗓️ Yearly sales trend shown."
 
 @tool
