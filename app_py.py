@@ -80,7 +80,8 @@ def low_products(input: str = "") -> str:
     low = df.groupby(["Material_Number", "ShortText_Item"])["Net_Value"].sum().reset_index()
     low = low.sort_values("Net_Value").head(10)
     st.dataframe(low)
-    st.plotly_chart(px.bar(low, x="ShortText_Item", y="Net_Value", text="Net_Value", title="Lowest Selling Products"), use_container_width=True)
+    st.plotly_chart(px.bar(low, x="ShortText_Item", y="Net_Value", text="Net_Value", title="Lowest Selling Products"), use_container_width=True, key="low_products_chart")
+
     return f"🔻 Lowest selling product is {low.iloc[0]['ShortText_Item']} with ₹{low.iloc[0]['Net_Value']:,.2f}"
 
 @tool
